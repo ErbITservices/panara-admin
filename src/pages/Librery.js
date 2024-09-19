@@ -55,8 +55,8 @@ const Librery= () => {
     const getAllLibrary = async()=>{
         
         try {
-            const {data} = await axios.get(
-              "http://localhost:4000/api/ticket/"
+            const { data } = await axios.get(
+              "https://panara-backend-1.onrender.com/api/ticket/"
             );
             console.log("h", data);
             setLibrary(data);
@@ -89,7 +89,9 @@ const Librery= () => {
         
         // e.prieventDefault()
        try {
-        await axios.delete(`http://localhost:4000/api/ticket/${e}`)
+        await axios.delete(
+          `https://panara-backend-1.onrender.com/api/ticket/${e}`
+        );
         
            getAllLibrary();
        } catch (error) {

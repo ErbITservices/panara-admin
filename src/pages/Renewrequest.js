@@ -50,7 +50,9 @@ const Renewrequest = () => {
   const [lete, setLete] = useState();
   const getAllLibrary = async () => {
     try {
-      const { data } = await axios.get("http://localhost:4000/api/request/");
+      const { data } = await axios.get(
+        "https://panara-backend-1.onrender.com/api/request/"
+      );
       console.log("h", data.savedProduct);
       setLibrary(data.savedProduct);
     } catch (error) {
@@ -87,13 +89,12 @@ const Renewrequest = () => {
           <Table>
             <Thead>
               <tr>
-                <Td>library</Td>
-                <Td>service</Td>
-                <Td>startdate</Td>
-                <Td>enddate</Td>
-                <Td>AMOUNT</Td>
-                <Td>Delete</Td>
-                <Td>Edit</Td>
+                <Td>Library</Td>
+                <Td>Service</Td>
+                <Td>Name</Td>
+                <Td>Mobile</Td>
+                <Td>Email</Td>
+                <Td>Problem</Td>
               </tr>
             </Thead>
             <Tbody>
