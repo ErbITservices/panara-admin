@@ -113,6 +113,7 @@ const Librery= () => {
           <Table>
             <Thead>
               <tr>
+                <Td>region</Td>
                 <Td>library</Td>
                 <Td>service</Td>
                 <Td>startdate</Td>
@@ -125,6 +126,7 @@ const Librery= () => {
             <Tbody>
               {Library?.map((c) => (
                 <Tr key={c._id}>
+                  <Td> {c.region} </Td>
                   <Td> {c.lname} </Td>
                   <Td>{c.service}</Td>
                   <Td>{c.startdate}</Td>

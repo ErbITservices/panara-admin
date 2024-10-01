@@ -5,11 +5,9 @@ import { useDispatch } from "react-redux";
 import { addProductapi, editProductapi } from "../redux/apiCalls/productsApis";
 import { req } from "../axiosReqMethods";
 
-
-
-function Addserviceorder({title,edit,setedit,librarydata}) {
-
+function Addserviceorder({ title, edit, setedit, librarydata }) {
   const [data, setdata] = useState({
+    region: "",
     lname: "",
     service: "",
     startdate: "",
@@ -17,14 +15,13 @@ function Addserviceorder({title,edit,setedit,librarydata}) {
     amount: "",
   });
   if (librarydata != undefined) {
-    setdata(librarydata)
+    setdata(librarydata);
   }
-  
-if (librarydata) {
-  // setdata(librarydata)
-}
+
+  if (librarydata) {
+    // setdata(librarydata)
+  }
   const handleInput = (e) => {
-    
     const name = e.target.name;
     const value = e.target.value;
 
@@ -33,51 +30,65 @@ if (librarydata) {
       [name]: value,
     });
 
-    
     console.log(data);
   };
 
-  const handleSubmit = async() => {
+  const handleSubmit = async () => {
     console.log(data);
-     try {
-        console.log("mihir1");
-        
-        const res = await req.post(`/api/ticket`, data);  
-       console.log(res);
-       setdata({
-         lname: "",
-         service: "",
-         startdate: "",
-         enddate: "",
-         amount: "",
-       });
-        
+    try {
+      console.log("mihir1");
+
+      const res = await req.post(`/api/ticket`, data);
+      console.log(res,'hh');
+      setdata({
+        region: "",
+        lname: "",
+        service: "",
+        startdate: "",
+        enddate: "",
+        amount: "",
+      });
     } catch (error) {
-        
-        console.log(error)
+      console.log(error);
     }
-    
-    
-  } 
+  };
   async function handleedit() {
     console.log("hey");
-    const res = await req.put(`/api/ticket/setdate/${librarydata._id}`, data);  
-       console.log(res);
-       setdata({
-         lname: "",
-         service: "",
-         startdate: "",
-         enddate: "",
-         amount: "",
-       });
-    edit = false
+    const res = await req.put(`/api/ticket/setdate/${librarydata._id}`, data);
+    console.log(res);
+    setdata({
+      region: "",
+      lname: "",
+      service: "",
+      startdate: "",
+      enddate: "",
+      amount: "",
+    });
+    edit = false;
   }
-   
+
   return (
     <div className="maincontainer">
       {title && <h1>{title} Ordder</h1>}
       {!title && <h1>Add Ordder</h1>}
-
+      <div className="inputfield">
+        <select 
+        name="region" 
+        onChange={handleInput}
+        value={data.region}
+        required
+        type="text"
+        >
+          <option  >Adl ahemdabad</option>
+          <option>Adl mehsana</option>
+          <option>Adl bhavnagar</option>
+          <option>Adl surat</option>
+          <option>Adl rajkot</option>
+          <option>Adl vadodra</option>
+          <option>Scl gandhinagar</option>
+          <option>Scl vadodra</option>
+        </select>
+      </div>
       <div className="inputfield">
         <label>Enter Library Name </label>
         <input
