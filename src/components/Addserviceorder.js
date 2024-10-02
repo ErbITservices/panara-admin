@@ -72,6 +72,8 @@ function Addserviceorder({ title, edit, setedit, librarydata }) {
       {title && <h1>{title} Ordder</h1>}
       {!title && <h1>Add Ordder</h1>}
       <div className="inputfield">
+        
+      <label>Enter Library Region </label>
         <select 
         name="region" 
         onChange={handleInput}
