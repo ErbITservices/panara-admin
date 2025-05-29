@@ -32,9 +32,9 @@ This admin dashboard provides:
 | React          | UI Framework                         |
 | React Router   | Routing between pages                |
 | Axios          | HTTP Client for API requests         |
-| Context API / Redux (if used) | State Management         |
+| Context API / Redux  | State Management         |
 | HTML5 & CSS3   | Structure and Styling                |
-| Vite / CRA     | Frontend Tooling (depending on setup)|
+| Vite / CRA     | Frontend Tooling |
 | REST API       | Communication with Panara Backend    |
 
 ---
